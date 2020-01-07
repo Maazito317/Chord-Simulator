@@ -1,0 +1,10 @@
+# Don't track content of these folders
+.idea/
+/target
+target/
+/project/target
+project/target
+/null
+.idea/
+/.idea
+.DS_Store

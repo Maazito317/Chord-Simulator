@@ -1,0 +1,14 @@
+Hello Team,
+
+Your project is graded.
+
+
+You have simulated users through random requests to the system invoking your own exposed APIs on the movies data.
+You have nicely used an user actor performing the above using your Node registry.
+
+Could have implemented individual actors for each entity of the CHORD and performed finger table look up for the simulation.
+
+Your grades are updated on BB(You will access them when they are released).
+
+Regards,
+Mohammed Siddiq

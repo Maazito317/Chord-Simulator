@@ -1,0 +1,24 @@
+UIC CS 441, Course Project
+
+Authors:
+  Lucas Cepiel
+  Riley Tonkin
+  Joshua Rowan
+  Chieh-Hsi Lin
+  Mohammad Maaz Khan
+
+====================================================================================
+
+Overview:
+The chord algorithm is a protocol for peer to peer distributed hashtables. A hashtable stores key value pairs by assigning keys to different computers(known as nodes). These nodes have their own IDs and the key-value pairs are stored on their respective nodes using these IDs.
+The chord algorithm specifies how the keys are assigned to these nodes and how a node can discover the value for a key that is queried by first locating a node that is responsible for that key.
+The algorithm also caters to nodes entering and leaving the system by utilizing various functions such as stabilize. The purpose of these functions is to rearrange successor lists, finger tables, and the entries stored on the nodes.
+The nodes and keys are assigned an m-bit identifier using consistent hashing. Consistent hashing caters to the resizing of the hash table in which only K/n keys need to be rearranged on average, where K is the number of keys and n is the number of nodes. The base hashing function for consistent hashing is the SHA-1 algorithm.
+
+Querying:
+A basic approach to querying is that when a node is queried, it passes the query on to it's successor until the corresponding key-value pair is found. To speed up this process, a finger table is used. The closest preceding node to the id is checked and if found, it returns the key-value. If not, the request is forwarded to the last node in the finger table and it's table is checked.
+
+Node entering and leaving:
+As an example, when a node enters the network, it is assigned an ID. This node finds it's relevant successor and predecessor and informs them of it's position. Then the keys held by the successor and predecessor are rearranged so that the newly added node can be provided with entries whose keys respond to their IDs.
+Once this is done, the successor lists and finger tables are updated so as to store the ID of the node and establish it's presence. Hence, stabilizing the chord ring. A similar process is followed for any node that chooses to leave the system.
+
